@@ -84,7 +84,7 @@ export default function Navbar() {
             ))}
             <NavLink
               to="/booking"
-              className="mt-4 w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg shadow-md transition"
+              className="mt-4 w-full text-center bg-green-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg shadow-md transition"
               onClick={() => setIsMenuOpen(false)}
             >
               Book Now

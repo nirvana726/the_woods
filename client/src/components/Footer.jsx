@@ -1,24 +1,27 @@
 import { Link } from 'react-router-dom';
-import { FaFacebookF, FaInstagram, FaTiktok } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaTiktok, FaYoutube, FaTripadvisor, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 
 const quickLinks = [
   { to: "/about", label: "About Us" },
-  { to: "/rooms", label: "Rooms & Suites" },
+  { to: "/rooms", label: "Rooms" },
   { to: "/activities", label: "Activities" },
   { to: "/contact", label: "Contact" },
   { to: "/booking", label: "Book Now" },
 ];
 
-const legalLinks = [
+const policyLinks = [
     { to: "/privacy-policy", label: "Privacy Policy" },
-    { to: "/terms", label: "Terms of Service" },
-    { to: "/cancellation", label: "Cancellation Policy" },
+    { to: "/terms", label: "Terms & Conditions" },
+    { to: "/cancellation", label: "Cancellation or Refund Policy" },
+    { to: "/guest-guidelines", label: "Guest Guidelines" },
 ];
 
 const socialLinks = [
     { href: "https://facebook.com", icon: <FaFacebookF />, label: "Facebook" },
     { href: "https://instagram.com", icon: <FaInstagram />, label: "Instagram" },
     { href: "https://tiktok.com", icon: <FaTiktok />, label: "TikTok" },
+    { href: "https://youtube.com", icon: <FaYoutube />, label: "YouTube" },
+    { href: "https://tripadvisor.com", icon: <FaTripadvisor />, label: "TripAdvisor" },
 ];
 
 export default function Footer() {
@@ -36,9 +39,9 @@ export default function Footer() {
               Your luxury mountain retreat in the heart of the Himalayas, where nature meets comfort and tranquility awaits.
             </p>
             <div className="mt-6 space-y-2 text-sm">
-                <p><strong>Location:</strong> Charikot, Dolakha, Nepal</p>
-                <p><strong>Phone:</strong> +977 9851-122519</p>
-                <p><strong>Email:</strong> info@thewoodscharikot.com</p>
+                <p className="flex items-center gap-2"><FaMapMarkerAlt className="text-lg" /><span>Charikot, Dolakha, Nepal</span></p>
+                <p className="flex items-center gap-2"><FaPhoneAlt className="text-lg" /><span>+977 9851-122519</span></p>
+                <p className="flex items-center gap-2"><FaEnvelope className="text-lg" /><span>info@thewoodscharikot.com</span></p>
             </div>
           </div>
 
@@ -56,9 +59,9 @@ export default function Footer() {
             </div>
             
             <div>
-              <h3 className="font-semibold text-base text-gray-900 mb-4">Legal</h3>
+              <h3 className="font-semibold text-base text-gray-900 mb-4">Our Policies</h3>
               <ul className="space-y-2">
-                {legalLinks.map((link) => (
+                {policyLinks.map((link) => (
                   <li key={link.label}>
                     <Link to={link.to} className="text-sm hover:text-gray-900 hover:underline transition-colors">{link.label}</Link>
                   </li>

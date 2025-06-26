@@ -1,16 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
+
+
 @import "tailwindcss";
 
-
 :root {
-  --primary: #f0f4f2;      
-  --secondary: #e2b04a;    
-  --accent: #17cb5c;      
-  --bg: #f8f8f5;           
-  --text: #222;            
-  --heading: #3bfb0b;      
-  --link: #0a0a0a;
-  --link-hover: #4ae275;
-  font-family: 'Montserrat', Arial, sans-serif;
+  --primary: #F0EDE6;       /* Cream/white buttons */
+  --secondary: #f4f4f4;     /* Dark green buttons/text */
+  --accent: #4AE275;        /* Green hover accent */
+  --bg: #F8F8F5;            /* Slight off-white background */
+  --text: #222222;          /* Page text color */
+  --heading: #0d0d0d;       /* Headings in dark green */
+  --link: #0a0a0a;          /* Link color matches headings */
+  --link-hover: #4AE275;    /* Hovered link accent */
+  font-family: 'Outfit', Arial, sans-serif;
 }
 
 html, body, #root {
@@ -20,14 +22,24 @@ html, body, #root {
   padding: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: 'Montserrat', Arial, sans-serif;
+  font-family: 'Outfit', Arial, sans-serif;
   scroll-behavior: smooth;
 }
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--heading);
+  font-family: 'Playfair', serif;
   font-weight: 700;
   letter-spacing: 0.01em;
+}
+
+/* Utility class for Playfair font */
+.font-playfair {
+  font-family: 'Playfair', serif !important;
+}
+
+.font-outfit {
+  font-family: 'Outfit', sans-serif !important;
 }
 
 a {
@@ -48,11 +60,11 @@ button, .btn {
 
 .bg-primary {
   background: var(--primary);
-  color: #fff;
+  color: var(--secondary);
 }
 .bg-secondary {
   background: var(--secondary);
-  color: #fff;
+  color: #ffffff;
 }
 .text-primary {
   color: var(--primary);
