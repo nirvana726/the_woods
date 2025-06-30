@@ -7,10 +7,10 @@
   --primary: #F0EDE6;       /* Cream/white buttons */
   --secondary: #f4f4f4;     /* Dark green buttons/text */
   --accent: #4AE275;        /* Green hover accent */
-  --bg: #F8F8F5;            /* Slight off-white background */
-  --text: #222222;          /* Page text color */
-  --heading: #0d0d0d;       /* Headings in dark green */
-  --link: #0a0a0a;          /* Link color matches headings */
+  --bg: #F8F6F2;            /* Light beige background */
+  --text: #3C2A21;          /* Coffee brown text */
+  --heading: #2A1810;       /* Darker coffee brown headings */
+  --link: #3C2A21;          /* Coffee brown link color */
   --link-hover: #4AE275;    /* Hovered link accent */
   font-family: 'Outfit', Arial, sans-serif;
 }
@@ -95,7 +95,11 @@ html, body, #root {
 .my-masonry-grid_column {
   padding-left: 16px; /* gutter size */
   background-clip: padding-box;
-}
+  }
 .my-masonry-grid_column > div {
   margin-bottom: 16px;
-}
+  }
+
+a.text-white, a.text-white:visited {
+  color: #fff !important;
+  }

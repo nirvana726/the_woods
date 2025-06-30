@@ -26,12 +26,12 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-16 md:py-24 bg-gray-50">
+    <section className="py-16 md:py-24 bg-[var(--bg)]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold">
+          <h1 className="text-3xl md:text-6xl font-bold">
             What Our Guests Say
-          </h2>
+          </h1>
           <p className="text-gray-600 mt-2">Read about the experiences that make our resort special</p>
         </div>
         
@@ -62,15 +62,15 @@ export default function Testimonials() {
         <div className="text-center mt-12">
           <div className="flex justify-center items-center gap-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600">4.9</div>
+              <div className="text-4xl font-bold text-gray-600">4.9</div>
               <div className="text-gray-600">Average Rating</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600">500+</div>
+              <div className="text-4xl font-bold text-gray-600">500+</div>
               <div className="text-gray-600">Happy Guests</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600">95%</div>
+              <div className="text-4xl font-bold text-gray-600">95%</div>
               <div className="text-gray-600">Return Rate</div>
             </div>
           </div>

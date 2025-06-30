@@ -1,10 +1,10 @@
 export default function HomeAbout() {
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-16 md:py-24 bg-[var(--bg)]">
       <div className="container mx-auto px-4 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        <h1 className="text-3xl md:text-6xl font-bold mb-4">
           Welcome to The Woods Charikot Resort
-        </h2>
+        </h1>
         <p className="max-w-3xl mx-auto text-gray-600 text-lg">
           A hidden gem in the heart of Charikot. Nestled amidst the tranquil hills, 
           our resort is more than just a place to stay — it's an escape into nature. 
@@ -13,7 +13,7 @@ export default function HomeAbout() {
         </p>
         <a
           href="/about"
-          className="mt-8 inline-block bg-transparent border-2 border-gray-800 text-white font-semibold px-8 py-3 rounded hover:bg-gray-800 hover:text-white transition"
+          className="mt-8 inline-block bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-3 rounded shadow transition"
         >
           Learn More
         </a>

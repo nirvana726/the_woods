@@ -1,132 +1,107 @@
-import PageHero from '../components/common/PageHero';
-import { FaWifi, FaMountain, FaUserFriends, FaBed, FaTv, FaFire } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { rooms } from '../data/roomData';
+import PageHero from '../components/common/PageHero';
+import { FaWifi, FaMountain, FaTree, FaConciergeBell, FaTv, FaFire, FaUserFriends, FaBed, FaShieldAlt, FaLeaf, FaCrown, FaParking, FaKey } from 'react-icons/fa';
 
-// Static data for the rooms - later, this will come from your backend
-const roomsData = [
-  {
-    name: 'Family Room',
-    price: '3000',
-    image: 'https://images.unsplash.com/photo-1568495248636-6432b97bd949?auto=format&fit=crop&w=800&q=80',
-    maxGuests: 4,
-    size: 'Spacious',
-    amenities: [
-      { icon: <FaWifi />, text: 'Free WiFi' },
-      { icon: <FaMountain />, text: 'Mountain View' },
-      { icon: <FaTv />, text: 'TV' },
-      { icon: <FaFire />, text: 'Fireplace' },
-    ],
-  },
-  {
-    name: 'King Size Room',
-    price: '2500',
-    image: 'https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=800&q=80',
-    maxGuests: 2,
-    size: 'Spacious',
-    amenities: [
-      { icon: <FaWifi />, text: 'Free WiFi' },
-      { icon: <FaMountain />, text: 'Mountain View' },
-      { icon: <FaBed />, text: 'King Bed' },
-    ],
-  },
-  {
-    name: 'Triple Sharing Room',
-    price: '2800',
-    image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80',
-    maxGuests: 3,
-    size: 'Spacious',
-    amenities: [
-      { icon: <FaWifi />, text: 'Free WiFi' },
-      { icon: <FaMountain />, text: 'Forest View' },
-      { icon: <FaUserFriends />, text: 'Triple Beds' },
-      { icon: <FaTv />, text: 'TV' },
-    ],
-  },
-];
-
-// Data for the "Why Choose" section
 const whyChooseUs = [
-    { title: 'Stunning Views', description: 'Every room offers breathtaking views of the surrounding mountains and forests.' },
-    { title: 'Nature Integration', description: 'Thoughtfully designed to harmonize with the natural environment.' },
-    { title: 'Luxury Amenities', description: 'Premium furnishings and modern amenities for ultimate comfort.' },
-    { title: 'Spacious Parking', description: 'Ample parking space for guests with vehicles, ensuring easy access.' },
+  {
+    icon: <FaMountain className="text-3xl mx-auto mb-2" />,
+    title: 'Stunning Views',
+    description: 'Every room offers breathtaking views of the surrounding mountains and forests.'
+  },
+  {
+    icon: <FaLeaf className="text-3xl mx-auto mb-2" />,
+    title: 'Nature Integration',
+    description: 'Thoughtfully designed to harmonize with the natural environment.'
+  },
+  {
+    icon: <FaCrown className="text-3xl mx-auto mb-2" />,
+    title: 'Luxury Amenities',
+    description: 'Premium furnishings and modern amenities for ultimate comfort.'
+  },
+  {
+    icon: <FaParking className="text-3xl mx-auto mb-2" />,
+    title: 'Spacious Parking',
+    description: 'Ample parking space for guests with vehicles, ensuring easy access.'
+  },
 ];
+
+const amenityIcons = {
+  'Free WiFi': <FaWifi />, 'Mountain View': <FaMountain />, 'Forest View': <FaTree />, 'Private Balcony': <FaKey />, 'Room Service': <FaConciergeBell />, 'TV': <FaTv />, 'Fireplace': <FaFire />, 'Safe': <FaShieldAlt />, 'Work Desk': <FaBed />
+};
 
 export default function Rooms() {
   return (
-    <div className="bg-white">
-      {/* 1. Use the new PageHero component */}
+    <div className="bg-[var(--bg)] min-h-screen">
       <PageHero
+        kicker="Accommodations"
         title="Luxury Rooms & Villas"
-        subtitle="Our Accommodations"
+        subtitle="Discover your perfect sanctuary where comfort meets nature"
         bgImage="https://images.unsplash.com/photo-1560200353-ce0a76b1d425?auto=format&fit=crop&w=1200&q=80"
       />
-
-      {/* 2. Room Listing Section */}
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 space-y-24">
-          {roomsData.map((room, index) => (
-            <div key={index} className="grid md:grid-cols-2 gap-12 items-center">
-              {/* Image Column */}
-              <div className={`relative ${index % 2 !== 0 ? 'md:order-2' : ''}`}>
-                <img
-                  src={room.image}
-                  alt={room.name}
-                  className="rounded-lg shadow-2xl w-full h-auto object-cover"
-                />
-                <div className="absolute top-4 right-4 bg-blue-600 text-white text-lg font-bold px-4 py-2 rounded-md">
-                  NPR {room.price}
+      {/* Gap after hero section */}
+      <div className="h-10 md:h-16" />
+      {/* Room Listing Section */}
+      <div className="container mx-auto px-4 pb-20">
+        {rooms.map((room, idx) => (
+          <div key={room.id} className={`bg-[var(--bg)] rounded-2xl flex flex-col ${idx % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} md:items-stretch mb-12 overflow-hidden`}>
+            {/* Image + badges */}
+            <div className="relative md:w-1/2 w-full bg-[var(--bg)] h-full">
+              <div className="relative w-full h-full min-h-[380px]">
+                <img src={room.images[0]} alt={room.name} className="w-full h-full object-cover rounded-2xl transition-all duration-700 hover:scale-105" />
+                <div className="absolute top-4 left-4 flex flex-col gap-2 z-10">
+                  <span className="bg-white text-gray-900 text-xs font-bold px-3 py-1 rounded-full shadow">Featured</span>
                 </div>
-              </div>
-
-              {/* Details Column */}
-              <div className={`flex flex-col ${index % 2 !== 0 ? 'md:order-1' : ''}`}>
-                <span className="text-sm font-semibold text-blue-500 mb-1">FEATURED</span>
-                <h2 className="text-3xl font-bold mb-4">{room.name}</h2>
-                <div className="flex items-center space-x-8 mb-6 text-gray-600">
-                  <span><strong className="text-gray-800">Max Guests:</strong> {room.maxGuests} People</span>
-                  <span><strong className="text-gray-800">Room Size:</strong> {room.size}</span>
-                </div>
-                
-                <h3 className="text-xl font-semibold mb-3">Amenities</h3>
-                <div className="grid grid-cols-2 gap-2 mb-8">
-                  {room.amenities.map((amenity, i) => (
-                    <div key={i} className="flex items-center space-x-3 text-gray-700">
-                      <span className="text-blue-500">{amenity.icon}</span>
-                      <span>{amenity.text}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="flex items-center space-x-4">
-                  <Link 
-                    to={`/rooms/${room.name.toLowerCase().replace(/ /g, '-')}`}
-                    className="px-6 py-3 bg-transparent border-2 border-gray-800 text-gray-800 rounded-lg font-semibold hover:bg-gray-800 hover:text-white transition"
-                  >
-                    View Details
-                  </Link>
-                  <Link 
-                    to="/booking"
-                    className="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition"
-                  >
-                    Book Now
-                  </Link>
+                <div className="absolute top-4 right-4 z-10">
+                  <span className="bg-green-600 text-white text-base font-bold px-5 py-2 rounded-full shadow">NPR {room.price}</span>
                 </div>
               </div>
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 3. "Why Choose Our Rooms?" Section */}
-      <section className="py-16 md:py-24 bg-gray-50">
+            {/* Info */}
+            <div className="flex flex-col justify-between p-10 md:w-1/2 w-full h-full bg-[var(--bg)]">
+              <div>
+                <h2 className="font-playfair font-bold leading-tight mb-4 text-[color:var(--heading)] text-3xl md:text-5xl">{room.name}</h2>
+                <p className="text-lg text-gray-500 mb-6">{room.description.split('\n')[0]}</p>
+                <div className="flex flex-wrap gap-8 mb-6">
+                  <div>
+                    <div className="text-xs text-gray-500 mb-1">Max Guests</div>
+                    <div className="text-lg font-bold text-gray-900">{room.maxOccupancy} People</div>
+                  </div>
+                  <div>
+                    <div className="text-xs text-gray-500 mb-1">Room Size</div>
+                    <div className="text-lg font-bold text-gray-900">Spacious</div>
+                  </div>
+                </div>
+                <div className="mb-6">
+                  <div className="text-base font-semibold text-gray-900 mb-2">Amenities</div>
+                  <div className="flex flex-wrap gap-2">
+                    {room.amenities.map((amenity, i) => (
+                      <span key={i} className="inline-flex items-center gap-1 bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium border border-gray-200">
+                        {amenityIcons[amenity] || null} {amenity}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col md:flex-row gap-4 mt-6">
+                <Link to={`/rooms/${room.slug}`} className="flex-1 block text-center px-4 py-3 bg-green-600 text-white text-base font-semibold rounded-lg hover:bg-green-700 transition-colors duration-200">View Details</Link>
+                <Link to="/booking" className="flex-1 block text-center px-4 py-3 bg-white border border-green-600 text-green-600 text-base font-semibold rounded-lg hover:bg-green-600 hover:text-white transition-colors duration-200">Book Now</Link>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      {/* Why Choose Our Rooms Section */}
+      <section className="py-16 bg-white/60 border-t border-black/10 mt-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Why Choose Our Rooms?
-          </h2>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-6xl font-bold mb-4">Why Choose Our Rooms?</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">Every accommodation is designed with your comfort and connection to nature in mind</p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {whyChooseUs.map((feature, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-lg text-center">
+              <div key={index} className="bg-white p-8 rounded-lg shadow-lg text-center">
+                {feature.icon}
                 <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
                 <p className="text-gray-600">{feature.description}</p>
               </div>

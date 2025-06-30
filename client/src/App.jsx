@@ -11,6 +11,8 @@ import PrivacyPolicy from "./pages/policies/PrivacyPolicy";
 import Terms from "./pages/policies/Terms";
 import Cancellation from "./pages/policies/Cancellation";
 import GuestGuidelines from "./pages/policies/GuestGuidelines";
+import ActivityDetail from './pages/activity/ActivityDetail';
+import RoomDetail from './pages/room/RoomDetail';
 
 function App() {
   return (
@@ -19,7 +21,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/rooms" element={<Rooms />} />
+        <Route path="/rooms/:slug" element={<RoomDetail />} />
         <Route path="/activities" element={<Activities />} />
+        <Route path="/activities/:slug" element={<ActivityDetail />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/booking" element={<Booking />} />

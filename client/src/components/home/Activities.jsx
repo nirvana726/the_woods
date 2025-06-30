@@ -29,18 +29,18 @@ const activities = [
 
 export default function Activities() {
   return (
-    <section className="py-16 md:py-24 bg-gray-50">
+    <section className="py-16 md:py-24 bg-[var(--bg)]">
       <div className="container mx-auto px-4">
         {/* Activities Header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold">
+          <h1 className="text-3xl md:text-6xl font-bold">
             Resort Activities
-          </h2>
+          </h1>
           <p className="text-gray-600 mt-2">Explore and experience the best of Charikot</p>
         </div>
 
         {/* Activities Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {activities.map((activity, index) => (
             <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-shadow">
               <div className="relative overflow-hidden">
@@ -67,12 +67,22 @@ export default function Activities() {
           ))}
         </div>
 
+        {/* View All Activities Button */}
+        <div className="flex justify-center mb-16">
+          <a
+            href="/activities"
+            className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition"
+          >
+            View All Activities
+          </a>
+        </div>
+
         {/* CTA Section */}
         <div className="bg-white rounded-lg shadow-lg p-8 md:p-12 text-center">
           <div className="max-w-3xl mx-auto">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">
+            <h1 className="text-3xl md:text-6xl font-bold mb-4">
               Ready for Your Mountain Adventure?
-            </h3>
+            </h1>
             <p className="text-gray-600 mb-8">
               Experience the magic of the Himalayas at The Woods Charikot Resort. 
               Book your stay now and create unforgettable memories.
@@ -80,7 +90,7 @@ export default function Activities() {
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a 
                 href="/booking" 
-                className="px-8 py-3 bg-blue-600 text-white rounded hover:bg-blue-700 transition font-semibold"
+                className="px-8 py-3 bg-green-600 text-white rounded hover:bg-green-700 transition font-semibold"
               >
                 Book Your Stay
               </a>

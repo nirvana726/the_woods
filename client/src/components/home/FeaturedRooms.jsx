@@ -33,12 +33,12 @@ const featuredRooms = [
 
 export default function FeaturedRooms() {
   return (
-    <section className="py-16 md:py-24 bg-gray-50">
+    <section className="py-16 md:py-24 bg-[var(--bg)]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold">
+          <h1 className="text-3xl md:text-6xl font-bold">
             Luxury Rooms & Villas
-          </h2>
+          </h1>
           <p className="text-gray-600 mt-2">Experience comfort and elegance in our thoughtfully designed accommodations</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -64,7 +64,7 @@ export default function FeaturedRooms() {
           ))}
         </div>
         <div className="text-center mt-12">
-          <a href="/rooms" className="inline-block bg-white border-green-400 text-green-400 font-semibold px-8 py-3 rounded hover:bg-green-700 shadow transition">
+          <a href="/rooms" className="inline-block bg-green-600 border-green-400 text-white font-semibold px-8 py-3 rounded hover:bg-green-700 shadow transition">
             Explore All Accommodations
           </a>
         </div>

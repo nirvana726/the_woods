@@ -28,8 +28,8 @@ export default function Navbar() {
   }, []);
 
   // Determine navbar classes based on state
-  const navBackground = isAtTop ? 'bg-transparent' : 'bg-white shadow-md';
-  const textColor = isAtTop ? 'text-white' : 'text-gray-800';
+  const navBackground = isAtTop ? 'bg-transparent' : 'bg-[var(--bg)] shadow-md';
+  const textColor = isAtTop ? 'text-white' : 'text-[var(--text)]';
 
   return (
     <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${navBackground} ${textColor}`}>
@@ -54,7 +54,7 @@ export default function Navbar() {
           ))}
           <NavLink
             to="/booking"
-            className="ml-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-2 rounded-lg shadow-md transition"
+            className="ml-4 bg-green-600 hover:bg-green-700 text-white font-semibold px-5 py-2 rounded-lg shadow-md transition"
           >
             Book Now
           </NavLink>
@@ -70,7 +70,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
-        <nav className="md:hidden bg-white text-gray-800 absolute top-full left-0 w-full shadow-xl">
+        <nav className="md:hidden bg-[var(--bg)] text-[var(--text)] absolute top-full left-0 w-full shadow-xl">
           <div className="container mx-auto px-4 pt-2 pb-6 flex flex-col items-center space-y-3">
             {navItems.map((item) => (
               <NavLink
@@ -84,7 +84,7 @@ export default function Navbar() {
             ))}
             <NavLink
               to="/booking"
-              className="mt-4 w-full text-center bg-green-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg shadow-md transition"
+              className="mt-4 w-full text-center bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg shadow-md transition"
               onClick={() => setIsMenuOpen(false)}
             >
               Book Now

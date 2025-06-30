@@ -1,137 +1,196 @@
 import PageHero from '../components/common/PageHero';
-
-const rooms = [
-  {
-    name: "Family Room",
-    price: "From NPR 3000/night",
-    featured: true,
-  },
-  {
-    name: "King Size Room",
-    price: "From NPR 2500/night",
-    featured: true,
-  },
-  {
-    name: "Triple Sharing Room",
-    price: "From NPR 2800/night",
-    featured: true,
-  },
-];
+import { FaStar, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 
 export default function Booking() {
-  return (
-    <div>
+    return (
+    <div className="bg-[var(--bg)]">
       <PageHero
-        title="Book Your Stay"
-        subtitle="Make a Reservation"
-        bgImage="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1200&q=80"
+        kicker="Book Your Stay"
+        title="Make a Reservation"
+        subtitle="Send us your booking inquiry and we'll get back to you with availability and pricing"
       />
 
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 grid md:grid-cols-3 gap-12">
+      <section className="py-8 md:py-16 bg-[var(--bg)]">
+        <div className="container mx-auto px-8 grid md:grid-cols-3 gap-8">
           {/* Booking Form */}
-          <form className="md:col-span-2 bg-gray-50 rounded-lg shadow-lg p-8 space-y-6">
-            <h2 className="text-2xl font-bold mb-4">Send us your booking inquiry</h2>
-            <p className="text-gray-600 mb-6">
-              We&apos;ll get back to you with availability and pricing.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="block mb-1 font-medium">Name<span className="text-red-500">*</span></label>
-                <input type="text" name="name" required className="w-full border rounded px-3 py-2" />
+          <div className="md:col-span-2 bg-white/90 border border-black/10 rounded-2xl shadow-lg p-8">
+            <h2 className="text-3xl font-bold mb-2">Booking Inquiry Form</h2>
+            <p className="text-gray-600 mb-8">Fill out the form below and our reservations team will contact you with availability and pricing details.</p>
+            <form className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+              {/* Personal Information Section */}
+              <div className="col-span-1 md:col-span-2">
+                <h3 className="text-2xl font-bold mb-4">Personal Information</h3>
               </div>
-              <div>
-                <label className="block mb-1 font-medium">Email<span className="text-red-500">*</span></label>
-                <input type="email" name="email" required className="w-full border rounded px-3 py-2" />
+              {/* First Name */}
+              <div className="flex flex-col col-span-1">
+                <label className="text-sm font-medium mb-1">First Name *</label>
+                <input
+                  type="text"
+                  className="bg-[#fdfaf6] border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+                  placeholder="Your first name"
+                  required
+                />
               </div>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="block mb-1 font-medium">Phone</label>
-                <input type="tel" name="phone" className="w-full border rounded px-3 py-2" />
+              {/* Last Name */}
+              <div className="flex flex-col col-span-1">
+                <label className="text-sm font-medium mb-1">Last Name *</label>
+                <input
+                  type="text"
+                  className="bg-[#fdfaf6] border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+                  placeholder="Your last name"
+                  required
+                />
               </div>
-              <div>
-                <label className="block mb-1 font-medium">Room Type</label>
-                <select name="roomType" className="w-full border rounded px-3 py-2">
-                  <option value="">Select a room</option>
-                  {rooms.map((room) => (
-                    <option key={room.name} value={room.name}>{room.name}</option>
-                  ))}
+              {/* Email */}
+              <div className="flex flex-col col-span-1">
+                <label className="text-sm font-medium mb-1">Email *</label>
+                <input
+                  type="email"
+                  className="bg-[#fdfaf6] border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+                  placeholder="your.email@example.com"
+                  required
+                />
+              </div>
+              {/* Phone */}
+              <div className="flex flex-col col-span-1">
+                <label className="text-sm font-medium mb-1">Phone *</label>
+                <input
+                  type="tel"
+                  className="bg-[#fdfaf6] border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+                  placeholder="+977 98XX-XXXXXX"
+                  required
+                />
+              </div>
+              {/* Country */}
+              <div className="flex flex-col col-span-1 md:col-span-2">
+                <label className="text-sm font-medium mb-1">Country</label>
+                <input
+                  type="text"
+                  className="bg-[#fdfaf6] border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+                  placeholder="Your country"
+                />
+              </div>
+              {/* Booking Details Section */}
+              <div className="col-span-1 md:col-span-2 mt-2">
+                <h3 className="text-2xl font-bold mb-4">Booking Details</h3>
+              </div>
+              {/* Check-in */}
+              <div className="flex flex-col col-span-1">
+                <label className="text-sm font-medium mb-1">Preferred Check-in Date *</label>
+                <input
+                  type="date"
+                  className="bg-[#fdfaf6] border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+                  required
+                />
+              </div>
+              {/* Check-out */}
+              <div className="flex flex-col col-span-1">
+                <label className="text-sm font-medium mb-1">Preferred Check-out Date *</label>
+                <input
+                  type="date"
+                  className="bg-[#fdfaf6] border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+                  required
+                />
+              </div>
+              {/* Guests */}
+              <div className="flex flex-col col-span-1">
+                <label className="text-sm font-medium mb-1">Number of Guests *</label>
+                <input
+                  type="number"
+                  min="1"
+                  className="bg-[#fdfaf6] border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+                  required
+                />
+              </div>
+              {/* Room Type */}
+              <div className="flex flex-col col-span-1">
+                <label className="text-sm font-medium mb-1">Preferred Room Type *</label>
+                <select
+                  className="bg-[#fdfaf6] border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+                  required
+                >
+                  <option value="">Select Room Type</option>
+                  <option value="family">Family Room</option>
+                  <option value="king">King Size Room</option>
+                  <option value="triple">Triple Sharing Room</option>
                 </select>
               </div>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="block mb-1 font-medium">Check-in<span className="text-red-500">*</span></label>
-                <input type="date" name="checkin" required className="w-full border rounded px-3 py-2" />
+              {/* Message */}
+              <div className="flex flex-col col-span-1 md:col-span-2">
+                <label className="text-sm font-medium mb-1">Message (optional)</label>
+                <textarea
+                  rows="4"
+                  className="bg-[#fdfaf6] border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+                  placeholder="Let us know any special requests or questions."
+                ></textarea>
               </div>
-              <div>
-                <label className="block mb-1 font-medium">Check-out<span className="text-red-500">*</span></label>
-                <input type="date" name="checkout" required className="w-full border rounded px-3 py-2" />
+              {/* Submit Button */}
+              <div className="col-span-1 md:col-span-2">
+                <button
+                  type="submit"
+                  className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg shadow transition"
+                >
+                  Submit Booking Inquiry
+                </button>
               </div>
-            </div>
-            <div>
-              <label className="block mb-1 font-medium">Guests<span className="text-red-500">*</span></label>
-              <input type="number" name="guests" min="1" required className="w-full border rounded px-3 py-2" />
-            </div>
-            <div>
-              <label className="block mb-1 font-medium">Message</label>
-              <textarea name="message" className="w-full border rounded px-3 py-2" rows={4}></textarea>
-            </div>
-            <button
-              type="submit"
-              className="w-full bg-blue-600 text-white py-2 rounded font-semibold hover:bg-blue-700 transition"
-            >
-              Send Booking Inquiry
-            </button>
-            <p className="text-xs text-gray-500 mt-2">
-              * Our team will respond to your inquiry within 24 hours.
-            </p>
-          </form>
+            </form>
+          </div>
 
-          {/* Sidebar: Accommodations & Contact Info */}
-          <div className="flex flex-col gap-8">
-            <div className="bg-gray-50 rounded-lg shadow-lg p-8">
-              <h2 className="text-2xl font-bold mb-4">Our Accommodations</h2>
-              <ul className="space-y-4">
-                {rooms.map((room) => (
-                  <li key={room.name} className="border-b pb-2">
-                    <div className="flex justify-between items-center">
-                      <span className="font-semibold">{room.name}</span>
-                      <span className="text-blue-600 font-bold text-sm">{room.price}</span>
-                    </div>
-                    {room.featured && (
-                      <span className="inline-block mt-1 text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded">Featured Room</span>
-                    )}
-                  </li>
-                ))}
-              </ul>
+          {/* Contact Info, Urgent Assistance, and Accommodations */}
+          <div className="space-y-6">
+            {/* Accommodations Preview */}
+            <div className="bg-white border border-black/10 rounded-xl shadow p-6">
+              <h3 className="text-2xl font-bold mb-4">Our Accommodations</h3>
+              <div className="space-y-4">
+                {/* Room Card */}
+                <div className="flex items-center gap-4 bg-white rounded-lg p-2 shadow border border-gray-200">
+                  <img src="/src/assets/Gallery/IMG-20250626-WA0002.jpg" alt="Family Room" className="w-16 h-16 object-cover rounded-lg" />
+                  <div className="flex-1">
+                    <div className="font-semibold text-base">Family Room</div>
+                    <div className="text-xs text-gray-600 flex items-center gap-1"><FaStar className="text-yellow-500" /> Featured Room</div>
+                    <div className="text-sm text-gray-700">From NPR 3000/night</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4 bg-white rounded-lg p-2 shadow border border-gray-200">
+                  <img src="/src/assets/Gallery/IMG-20250626-WA0003.jpg" alt="King Size Room" className="w-16 h-16 object-cover rounded-lg" />
+                  <div className="flex-1">
+                    <div className="font-semibold text-base">King Size Room</div>
+                    <div className="text-xs text-gray-600 flex items-center gap-1"><FaStar className="text-yellow-500" /> Featured Room</div>
+                    <div className="text-sm text-gray-700">From NPR 2500/night</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4 bg-white rounded-lg p-2 shadow border border-gray-200">
+                  <img src="/src/assets/Gallery/IMG-20250626-WA0004.jpg" alt="Triple Sharing Room" className="w-16 h-16 object-cover rounded-lg" />
+                  <div className="flex-1">
+                    <div className="font-semibold text-base">Triple Sharing Room</div>
+                    <div className="text-xs text-gray-600 flex items-center gap-1"><FaStar className="text-yellow-500" /> Featured Room</div>
+                    <div className="text-sm text-gray-700">From NPR 2800/night</div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="bg-gray-50 rounded-lg shadow-lg p-8">
-              <h2 className="text-2xl font-bold mb-4">Contact Information</h2>
-              <div className="mb-2">
-                <span className="font-semibold">Phone:</span>
-                <a href="tel:+9779851122519" className="text-blue-600 hover:underline block">+977-9851122519</a>
-              </div>
-              <div className="mb-2">
-                <span className="font-semibold">Email:</span>
-                <a href="mailto:thewoodscharikot@gmail.com" className="text-blue-600 hover:underline block">thewoodscharikot@gmail.com</a>
-              </div>
-              <div className="mb-2">
-                <span className="font-semibold">Location:</span>
-                <div>Charikot, Dolakha District, Nepal</div>
+
+            {/* Contact Info */}
+            <div className="bg-white border border-black/10 rounded-xl shadow p-6">
+              <h3 className="text-2xl font-bold mb-4">Contact Information</h3>
+              <div className="space-y-3">
+                <div className="flex items-center gap-3"><FaPhoneAlt className="text-green-600" /><span>+977-9851122519</span></div>
+                <div className="flex items-center gap-3"><FaEnvelope className="text-green-600" /><span>thewoodscharikot@gmail.com</span></div>
+                <div className="flex items-center gap-3"><FaMapMarkerAlt className="text-green-600" /><span>Charikot, Dolakha District, Nepal</span></div>
               </div>
             </div>
-            <div className="bg-blue-50 rounded-lg shadow-lg p-8 text-center">
-              <h3 className="text-lg font-bold mb-2">Need Immediate Assistance?</h3>
-              <p className="mb-2">Call us directly for urgent inquiries or immediate booking assistance.</p>
-              <a href="tel:+9779851122519" className="inline-block bg-blue-600 text-white px-6 py-2 rounded font-semibold hover:bg-blue-700 transition">
+
+            {/* Urgent Assistance */}
+            <div className="bg-white border border-black/10 rounded-xl shadow p-6">
+              <h4 className="text-lg font-semibold mb-3">Need Immediate Assistance?</h4>
+              <p className="text-gray-600 mb-4">Call us directly for urgent inquiries or immediate booking assistance.</p>
+              <a href="tel:+9779851122519" className="inline-block w-full text-center bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-lg shadow transition">
                 Call Now: +977-9851122519
               </a>
             </div>
           </div>
         </div>
       </section>
-    </div>
-  );
-}
+      </div>
+    );
+  }
