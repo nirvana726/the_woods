@@ -47,9 +47,7 @@ a {
   text-decoration: none;
   transition: color 0.2s;
 }
-a:hover {
-  color: var(--link-hover);
-}
+
 
 button, .btn {
   font-family: inherit;
@@ -103,3 +101,4 @@ html, body, #root {
 a.text-white, a.text-white:visited {
   color: #fff !important;
   }
+  

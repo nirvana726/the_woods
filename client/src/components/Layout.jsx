@@ -1,5 +1,6 @@
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import FooterDivider from "./FooterDivider";
 import PropTypes from 'prop-types';
 
 export default function Layout({ children }) {
@@ -9,6 +10,7 @@ export default function Layout({ children }) {
       <main className="flex-1 pt-20">
         {children}
       </main>
+      <FooterDivider />
       <Footer />
     </div>
   );

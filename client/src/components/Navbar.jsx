@@ -35,8 +35,14 @@ export default function Navbar() {
     <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${navBackground} ${textColor}`}>
       <div className="container mx-auto px-4 flex justify-between items-center h-20">
         {/* Logo */}
-        <NavLink to="/" className="text-2xl font-bold">
-          The Woods
+        <NavLink to="/" className="flex items-center h-14">
+          <div className="bg-white rounded-full h-12 w-12 flex items-center justify-center shadow-md">
+            <img
+              src="/logo.avif"
+              alt="The Woods Charikot Resort Logo"
+              className="h-8 w-8 object-contain"
+            />
+          </div>
         </NavLink>
 
         {/* Desktop Navigation */}
@@ -45,16 +51,16 @@ export default function Navbar() {
             <NavLink
               key={item.to}
               to={item.to}
-              className={({ isActive }) => 
-                `px-3 py-2 rounded hover:bg-gray-500/10 transition-colors ${isActive ? 'font-bold' : ''}`
-              }
+              className="relative px-3 py-1"
             >
-              {item.label}
+              <span className="relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#a89c7c] after:transition-all after:duration-300 hover:after:w-full">
+                {item.label}
+              </span>
             </NavLink>
           ))}
           <NavLink
             to="/booking"
-            className="ml-4 bg-green-600 hover:bg-green-700 text-white font-semibold px-5 py-2 rounded-lg shadow-md transition"
+            className="rounded-full bg-green-600 hover:bg-green-700 text-white px-3 py-2 text-sm font-normal ml-4"
           >
             Book Now
           </NavLink>

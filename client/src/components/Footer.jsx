@@ -32,8 +32,15 @@ export default function Footer() {
           
           {/* Resort Info */}
           <div className="w-full md:w-1/3 lg:w-2/5">
-            <Link to="/" className="text-3xl font-bold text-[var(--heading)]">
-              The Woods Charikot Resort
+            <Link to="/" className="flex items-center gap-4 mb-4">
+              <div className="bg-white rounded-full h-14 w-14 flex items-center justify-center shadow-md">
+                <img
+                  src="/logo.avif"
+                  alt="The Woods Charikot Resort Logo"
+                  className="h-10 w-10 object-contain"
+                />
+              </div>
+              <span className="text-3xl font-bold text-[var(--heading)] font-playfair">The Woods Charikot Resort</span>
             </Link>
             <p className="max-w-sm mt-4 text-base leading-relaxed">
               Your luxury mountain retreat in the heart of the Himalayas, where nature meets comfort.
@@ -52,7 +59,12 @@ export default function Footer() {
               <ul className="space-y-2">
                 {quickLinks.map((link) => (
                   <li key={link.to}>
-                    <Link to={link.to} className="text-base hover:text-[var(--heading)] hover:underline transition-colors">{link.label}</Link>
+                    <Link
+                      to={link.to}
+                      className="relative text-base hover:text-inherit after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[1px] after:bg-[#a89c7c] after:transition-all after:duration-300 hover:after:w-full"
+                    >
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -63,7 +75,12 @@ export default function Footer() {
               <ul className="space-y-2">
                 {policyLinks.map((link) => (
                   <li key={link.label}>
-                    <Link to={link.to} className="text-base hover:text-[var(--heading)] hover:underline transition-colors">{link.label}</Link>
+                    <Link
+                      to={link.to}
+                      className="relative text-base hover:text-inherit after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[1px] after:bg-[#a89c7c] after:transition-all after:duration-300 hover:after:w-full"
+                    >
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
