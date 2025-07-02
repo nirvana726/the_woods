@@ -12,7 +12,7 @@ const quickLinks = [
 const policyLinks = [
     { to: "/privacy-policy", label: "Privacy Policy" },
     { to: "/terms", label: "Terms & Conditions" },
-    { to: "/cancellation", label: "Cancellation or Refund Policy" },
+    { to: "/cancellation", label: "Cancellation & Refund Policy" },
     { to: "/guest-guidelines", label: "Guest Guidelines" },
 ];
 
