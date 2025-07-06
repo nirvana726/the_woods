@@ -22,7 +22,7 @@ export default function Home() {
             href="/booking"
             className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-3 rounded shadow transition"
           >
-            Book Now
+            Book your stay
           </a>
         </div>
       </section>

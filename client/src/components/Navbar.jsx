@@ -9,6 +9,7 @@ const navItems = [
   { to: "/activities", label: "Activities" },
   { to: "/gallery", label: "Gallery" },
   { to: "/contact", label: "Contact" },
+  
 ];
 
 export default function Navbar() {

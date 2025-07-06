@@ -1,8 +1,53 @@
+import React, { useState } from "react";
+import axios from "axios";
 import PageHero from '../components/common/PageHero';
 import { FaStar, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 
 export default function Booking() {
-    return (
+  const [form, setForm] = useState({
+    room: "",
+    firstname: "",
+    lastname: "",
+    email: "",
+    phone: "",
+    country: "",
+    message: "",
+    checkIn: "",
+    checkOut: "",
+    guests: "",
+  });
+  const [success, setSuccess] = useState(null);
+  const [error, setError] = useState(null);
+
+  const handleChange = e => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+    setSuccess(null);
+    setError(null);
+    try {
+      await axios.post("/api/bookings", form);
+      setSuccess("Booking successful!");
+      setForm({
+        room: "",
+        firstname: "",
+        lastname: "",
+        email: "",
+        phone: "",
+        country: "",
+        message: "",
+        checkIn: "",
+        checkOut: "",
+        guests: "",
+      });
+    } catch (err) {
+      setError(err.response?.data?.message || "Booking failed.");
+    }
+  };
+
+  return (
     <div className="bg-[var(--bg)]">
       <PageHero
         kicker="Book Your Stay"
@@ -16,7 +61,9 @@ export default function Booking() {
           <div className="md:col-span-2 bg-white/90 border border-black/10 rounded-2xl shadow-lg p-8">
             <h2 className="text-3xl font-bold mb-2">Booking Inquiry Form</h2>
             <p className="text-gray-600 mb-8">Fill out the form below and our reservations team will contact you with availability and pricing details.</p>
-            <form className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+            {success && <div className="mb-4 text-green-600">{success}</div>}
+            {error && <div className="mb-4 text-red-600">{error}</div>}
+            <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
               {/* Personal Information Section */}
               <div className="col-span-1 md:col-span-2">
                 <h3 className="text-2xl font-bold mb-4">Personal Information</h3>
@@ -25,6 +72,9 @@ export default function Booking() {
               <div className="flex flex-col col-span-1">
                 <label className="text-sm font-medium mb-1">First Name *</label>
                 <input
+                  name="firstname"
+                  value={form.firstname}
+                  onChange={handleChange}
                   type="text"
                   className="bg-[#fdfaf6] border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
                   placeholder="Your first name"
@@ -35,6 +85,9 @@ export default function Booking() {
               <div className="flex flex-col col-span-1">
                 <label className="text-sm font-medium mb-1">Last Name *</label>
                 <input
+                  name="lastname"
+                  value={form.lastname}
+                  onChange={handleChange}
                   type="text"
                   className="bg-[#fdfaf6] border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
                   placeholder="Your last name"
@@ -45,6 +98,9 @@ export default function Booking() {
               <div className="flex flex-col col-span-1">
                 <label className="text-sm font-medium mb-1">Email *</label>
                 <input
+                  name="email"
+                  value={form.email}
+                  onChange={handleChange}
                   type="email"
                   className="bg-[#fdfaf6] border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
                   placeholder="your.email@example.com"
@@ -55,6 +111,9 @@ export default function Booking() {
               <div className="flex flex-col col-span-1">
                 <label className="text-sm font-medium mb-1">Phone *</label>
                 <input
+                  name="phone"
+                  value={form.phone}
+                  onChange={handleChange}
                   type="tel"
                   className="bg-[#fdfaf6] border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
                   placeholder="+977 98XX-XXXXXX"
@@ -65,6 +124,9 @@ export default function Booking() {
               <div className="flex flex-col col-span-1 md:col-span-2">
                 <label className="text-sm font-medium mb-1">Country</label>
                 <input
+                  name="country"
+                  value={form.country}
+                  onChange={handleChange}
                   type="text"
                   className="bg-[#fdfaf6] border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
                   placeholder="Your country"
@@ -78,6 +140,9 @@ export default function Booking() {
               <div className="flex flex-col col-span-1">
                 <label className="text-sm font-medium mb-1">Preferred Check-in Date *</label>
                 <input
+                  name="checkIn"
+                  value={form.checkIn}
+                  onChange={handleChange}
                   type="date"
                   className="bg-[#fdfaf6] border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
                   required
@@ -87,6 +152,9 @@ export default function Booking() {
               <div className="flex flex-col col-span-1">
                 <label className="text-sm font-medium mb-1">Preferred Check-out Date *</label>
                 <input
+                  name="checkOut"
+                  value={form.checkOut}
+                  onChange={handleChange}
                   type="date"
                   className="bg-[#fdfaf6] border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
                   required
@@ -96,6 +164,9 @@ export default function Booking() {
               <div className="flex flex-col col-span-1">
                 <label className="text-sm font-medium mb-1">Number of Guests *</label>
                 <input
+                  name="guests"
+                  value={form.guests}
+                  onChange={handleChange}
                   type="number"
                   min="1"
                   className="bg-[#fdfaf6] border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
@@ -106,6 +177,9 @@ export default function Booking() {
               <div className="flex flex-col col-span-1">
                 <label className="text-sm font-medium mb-1">Preferred Room Type *</label>
                 <select
+                  name="room"
+                  value={form.room}
+                  onChange={handleChange}
                   className="bg-[#fdfaf6] border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
                   required
                 >
@@ -119,6 +193,9 @@ export default function Booking() {
               <div className="flex flex-col col-span-1 md:col-span-2">
                 <label className="text-sm font-medium mb-1">Message (optional)</label>
                 <textarea
+                  name="message"
+                  value={form.message}
+                  onChange={handleChange}
                   rows="4"
                   className="bg-[#fdfaf6] border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
                   placeholder="Let us know any special requests or questions."
@@ -191,6 +268,6 @@ export default function Booking() {
           </div>
         </div>
       </section>
-      </div>
-    );
-  }
+    </div>
+  );
+}

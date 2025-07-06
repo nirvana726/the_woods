@@ -36,7 +36,7 @@ export default function Activities() {
           <h1 className="text-3xl md:text-6xl font-bold">
             Resort Activities
           </h1>
-          <p className="text-gray-600 mt-2">Explore and experience the best of Charikot</p>
+          <p className="text-gray-600 text-lg mt-2">Explore and experience the best of Charikot</p>
         </div>
 
         {/* Activities Grid */}

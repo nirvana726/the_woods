@@ -41,7 +41,7 @@ export default function Features() {
           <h1 className="text-3xl md:text-6xl font-bold">
             Why Choose The Woods Charikot Resort?
           </h1>
-          <p className="text-gray-600 mt-2">Exceptional Experiences Await You</p>
+          <p className="text-gray-600 text-lg mt-2">Exceptional Experiences Await You</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
